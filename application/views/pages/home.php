@@ -1,18 +1,3 @@
-<body >
-	<header>
-		<div id="logo_block">
-			<i id="menu_button" class="fa fa-bars fa-2x" aria-hidden="true"></i>
-			<h1 id="logo">Saturn</h1>
-		</div>
-		<nav id="navigation-bar">
-			<ul id="menu">
-				<li><a href="">Home</a></li>
-				<li><a href="<?php echo base_url('products/add'); ?>" target="_blank">Add products</a></li>
-				<li><a href="<?php echo base_url('archive'); ?>">Archive</a></li>
-				<li><a href="<?php echo base_url('contact'); ?>">Contact</a></li>
-			</ul>
-		</nav>
-	</header>
 	<div id="main">
 		<div id="info">
 			 <img id="head-bg" src="<?php echo base_url(); ?>img/head-bg.jpg" alt="head-img">
@@ -30,21 +15,19 @@
 					<img src="<?php echo base_url(); ?>img/separator.png" alt="separator">
 				</div>
 				<div class="block_text" id="block1_text">
+					<?php if(!empty($item['image_url'])){echo "<img class='product_image' src='img/photos/" . $item['image_url'] . "'alt='product_model'>" ;}?>
 					<?=$item['description'];?>
-					
 				</div>
 				<div class="read_button">
 					Read More
 				</div>
 				<div class="tags_and_comments">
-					<img src="<?php echo base_url(); ?>img/separator.png" alt="separator">
-						<img src="<?=$item['image_url'];?>" alt="">
-						
+					<img src="<?php echo base_url(); ?>img/separator.png" alt="separator"> 
 					<p><span>views: </span><a href=""><?=$item['views'];?></a></p>
 				</div>
 			</div>
 			<?php endforeach;?>
-		<footer>
+			<?php echo $this->pagination->create_links(); ?>
 			<div id="previous">
 				<a href="">
 					<i class="fa fa-arrow-left" aria-hidden="true"></i>
@@ -56,10 +39,7 @@
 				<a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
 				<a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a>
 				<a href=""><i class="fa fa-vk" aria-hidden="true"></i></a>
-			</div>
+			</div>		
 			<div class="clear"></div>
-			<div id="copyright">
-				HANDCRAFTED BY &copy FLAMEKAIZAR
-			</div>
-		</footer>
-	</div>
+		</div>
+		

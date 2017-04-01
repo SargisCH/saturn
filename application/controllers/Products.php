@@ -10,27 +10,34 @@ class Products extends CI_Controller{
             $data['products'] = $this->product_model->get_products();
             $this->load->view("get_products", $data);
         }
-        public function add(){
+        public function add_view(){
             $data1['title'] = "Add_product";
-            $data1['content'] = 'pages/home';
-			$this->load->helper('url');
-			$this->load->model('product_model');
-			$data1['products'] = $this->product_model->get_products();
-            //$this->load->view("get_products", $data);
+            $data1['content'] = 'add_product';
 			$this->load->view('master', $data1);
-            $this->load->view('add_product');
-        if($this->input->post('submit')){ 
-             $config['upload_path'] = './img/photos/';
-             $config['allowed_types'] = 'gif|jpg|png|jpeg';
-             $config['max_size']	= '1000';
-		     $this->load->library('upload', $config);
-             $image_data = $this->upload->do_upload();
-             //$add['img'] = $image_data['file_name'];
-             $data['title'] = $this->input->post('title');
-             $data['description'] = $this->input->post('description');
-             $data['image_url'] = $this->input->post('userfile');
-             $this->product_model->add_product($data);
-        }
+    }
+     public function add(){
+            $data1['title'] = "Add_product";
+            $data1['content'] = 'add_product';
+            $config['upload_path'] = './img/photos/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['max_size']	= '1000';
+		    $this->load->library('upload', $config);
+            $this->upload->do_upload();
+            $image_data = $this->upload->data(); 
+            $data['title'] = $this->input->post('title');
+            $data['description'] = $this->input->post('description');
+            $data['image_url'] = $image_data['file_name'];
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules('title', 'Title', 'required|min_length[5]');
+            $this->form_validation->set_rules('description', 'Description', 'required|min_length[12]');
+            if ($this->form_validation->run() == FALSE){
+                $this->load->view('master', $data1);
+            }
+            else{
+                $this->product_model->add_product($data);
+                $data1['success'] = "Your Data has been added";
+                $this->load->view('master', $data1);
+            }
     }
     public function get(){
             $data['products'] = $this->product_model->get_products();  

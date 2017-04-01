@@ -130,8 +130,10 @@ nav{
 .tags_and_comments a:hover{
 	border-bottom: 1px dotted grey;
 }
-.block_text img{
+.product_image{
 	float: right;
+	width: 150px;
+	height: 150px;
 }
 #block_text2{
 	float: left;
@@ -171,7 +173,7 @@ footer{
 	margin-left: 10px;
 }
 #contact a:hover{
-	color: #FA8E00;
+	color: ;
 }
 #copyright{
 	margin-top: 50px;
@@ -185,5 +187,28 @@ footer{
 }
 .clear{
 	clear: both;
+}
+#add_product{
+    margin: 50px auto;
+	background: #FA8E00;
+	height: 450px;
+	display: flex
+}
+#form{
+    width:80%;
+    margin: auto auto;
+	
+}
+#form  input{
+	width: 100%;
+}
+#form label{
+	width:100%;
+}
+#form p{
+	color: red;
+}
+#success p{
+	color: forestgreen;
 }
 

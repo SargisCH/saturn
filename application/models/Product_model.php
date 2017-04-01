@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Product_model extends CI_Model{
-    public function get_products(){
-        $query = $this->db->get("products");
+    public function get_products($num, $offset){
+        $query = $this->db->get("products",$num, $offset);
         return $query->result_array();
     }       
     public function add_product($data){

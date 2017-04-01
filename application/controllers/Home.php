@@ -11,8 +11,15 @@ class Home extends CI_Controller {
 			$data['title'] = ucfirst($page);
 			$this->load->helper('url');
 			$this->load->model('product_model');
-			$data['products'] = $this->product_model->get_products();
-            //$this->load->view("get_products", $data);
+			$config['base_url'] = base_url() . 'home/index';
+			$config['total_rows'] = $this->db->count_all('products');
+			$config['per_page'] = 1;
+			//$config['uri_segment'] = 3;
+			$config['full_tag_open'] = '<p>';
+			$config['full_tag_close'] = '</p>';
+
+			$this->pagination->initialize($config);
+			$data['products'] = $this->product_model->get_products($config['per_page'], $this->uri->segment(3));
 			$this->load->view('master', $data);
 	}
 }
