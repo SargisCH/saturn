@@ -143,8 +143,8 @@ footer{
 	width: 50%;
 	margin: 50px auto;
 }
-#previous{
-	width: 180px;
+.buttons_pagination{
+	width: 120px;
 	text-align: center;
 	background: black;
 	height: 40px;
@@ -156,12 +156,21 @@ footer{
 	cursor: pointer;
 	float: left;
 }
-#previous a{
+.buttons_pagination:hover{
+	background: #2B2B29;
+}
+.buttons_pagination span,i{
 	color: white;
+}
+.buttons_pagination a:hover{
 	text-decoration: none;
 }
-#previous:hover{
-	background: #2B2B29;
+#next_page{
+	float: right;
+}
+.active_page{
+	color: black;
+	float: left;
 }
 #contact{
 	width: 300px;
@@ -210,5 +219,8 @@ footer{
 }
 #success p{
 	color: forestgreen;
+}
+.myclass a{
+	color: red;
 }
 

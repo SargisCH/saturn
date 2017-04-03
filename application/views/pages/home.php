@@ -1,4 +1,5 @@
-	<div id="main">
+
+    <div id="main">
 		<div id="info">
 			 <img id="head-bg" src="<?php echo base_url(); ?>img/head-bg.jpg" alt="head-img">
 			 <div id="info_text">
@@ -15,7 +16,7 @@
 					<img src="<?php echo base_url(); ?>img/separator.png" alt="separator">
 				</div>
 				<div class="block_text" id="block1_text">
-					<?php if(!empty($item['image_url'])){echo "<img class='product_image' src='img/photos/" . $item['image_url'] . "'alt='product_model'>" ;}?>
+					<?php if(!empty($item['image_url'])){echo "<img class='product_image' src='/img/photos/" . $item['image_url'] . "'alt='product_image'>" ;}?>
 					<?=$item['description'];?>
 				</div>
 				<div class="read_button">
@@ -28,12 +29,6 @@
 			</div>
 			<?php endforeach;?>
 			<?php echo $this->pagination->create_links(); ?>
-			<div id="previous">
-				<a href="">
-					<i class="fa fa-arrow-left" aria-hidden="true"></i>
-					<span>  PREVIOUS</span>
-				</a>
-			</div>
 			<div id="contact">
 				<a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
 				<a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
