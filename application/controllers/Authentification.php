@@ -46,8 +46,8 @@ class Authentification extends CI_Controller {
             $data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
             $data['email'] = $this->input->post('email');
             $data['created_at'] = date('y-m-d');
-            $this->load->model('login_and_register_model');
-            $this->login_and_register_model->register($data);
+            $this->load->model('authentification_model');
+            $this->authentification_model->register($data);
             $data_register['success'] = "You are registered";
             $this->load->view('master', $data_register);
         }
