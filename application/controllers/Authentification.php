@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login_and_Register extends CI_Controller {
+class Authentification extends CI_Controller {
     public function login (){
         $data_login['title'] = "Login";
         $data_login['content'] = 'login';
@@ -11,13 +11,18 @@ class Login_and_Register extends CI_Controller {
         if ($this->form_validation->run()){
             $username = $this->input->post('username');
             $password = $this->input->post('password');
-            $this->load->model('login_and_register_model');
-            if($data_login['users'] = $this->login_and_register_model->login($username, $password)){
+            $this->load->model('authentification_model');
+            if($data_login['users'] = $this->authentification_model->login($username)){
                 //$this->load->view('master', $data_login);
-                redirect(base_url() . 'home');
-            } else {
-                $data_login['error'] = "Invalid username or Password";
-                $this->load->view('master', $data_login);
+                //var_dump($data_login['users']);
+                foreach ($data_login['users'] as $item){
+                    if(password_verify($password, $item['password'])){
+                        redirect(base_url() . 'home');
+                    }else {
+                        $data_login['error'] = "Invalid username or Password";
+                        $this->load->view('master', $data_login);
+                    }
+                }
             }
         }
         else{
@@ -25,11 +30,6 @@ class Login_and_Register extends CI_Controller {
         }
 
     }
-    /*public function register_view(){
-        $data_register['title'] = "Register";
-        $data_register['content'] = 'register';
-        $this->load->view('master', $data_register);
-    }*/
     public function register(){
         $data_register['title'] = "Register";
         $data_register['content'] = 'register';
@@ -43,7 +43,7 @@ class Login_and_Register extends CI_Controller {
         }
         else{
             $data['username'] = $this->input->post('username');
-            $data['password'] = $this->input->post('password');
+            $data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
             $data['email'] = $this->input->post('email');
             $data['created_at'] = date('y-m-d');
             $this->load->model('login_and_register_model');

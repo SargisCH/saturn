@@ -1,7 +1,7 @@
 <div id="login_block" class="form-group">
     <?php
     $attributes = array('id' => 'login_form', 'method' => 'post');
-    echo form_open('login_and_register/login', $attributes);?>
+    echo form_open('authentification/login', $attributes);?>
     <label for="username">
         Username <input class="form-control" id="username" type="text" value="<?php echo set_value('username'); ?>" name='username' ><br><br>
     </label>
@@ -19,5 +19,5 @@ if(isset($error)){
 }
 ?>
 <div id="register_link">
-    <a href="<?php echo base_url('login_and_register/register'); ?>">Registration</a>
+    <a href="<?php echo base_url('authentification/register'); ?>">Registration</a>
 </div>

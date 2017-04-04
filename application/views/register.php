@@ -1,7 +1,7 @@
 <div id="register_block" class="form-group">
     <?php
     $attributes = array('id' => 'register_form', 'method' => 'post');
-    echo form_open('login_and_register/register', $attributes);?>
+    echo form_open('authentification/register', $attributes);?>
     <label for="username">
         Username <input class="form-control" id="username" type="text" value="<?php echo set_value('username'); ?>" name='username' ><br><br>
     </label>
