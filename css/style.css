@@ -198,11 +198,11 @@ footer{
 	clear: both;
 }
 #add_product{
-    margin: 50px auto;
-	background: #FA8E00;
-	height: 450px;
-	display: flex
-}
+	 margin: 50px auto;
+	 background: #FA8E00;
+	 height: 450px;
+	 display: flex
+ }
 #form{
     width:80%;
     margin: auto auto;
@@ -220,7 +220,38 @@ footer{
 #success p{
 	color: forestgreen;
 }
-.myclass a{
+#login_block{
+	margin: 50px auto;
+	background: #FA8E00;
+	height: 450px;
+	display: flex
+}
+#login_block form{
+	width:80%;
+	margin: auto auto;
+}
+#login_block form p{
 	color: red;
 }
-
+#login_block form input, label{
+	width: 100%;
+}
+#register_link a{
+	color: black;
+}
+#register_block{
+	margin: 50px auto;
+	background: #FA8E00;
+	height: 650px;
+	display: flex
+}
+#register_block form{
+	width:80%;
+	margin: auto auto;
+}
+#register_block form input, label{
+	width: 100%;
+}
+#register_block form p{
+	color: red;
+}
