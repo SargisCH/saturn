@@ -27,7 +27,7 @@ header{
 }
 nav{
 	float: left;
-	width: 60%;
+	width: 50%;
 	margin-top: 30px;
 }
 #menu li{
@@ -252,6 +252,19 @@ footer{
 #register_block form input, label{
 	width: 100%;
 }
-#register_block form p{
+#register_block form p {
 	color: red;
 }
+#logout_block{
+	position: absolute;
+	top: 35px;
+	width: 50px;
+	right: 10px;
+}
+#logout_block a{
+	color: black;
+}
+#logout_block a:hover {
+	color: black;
+}
+

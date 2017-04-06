@@ -5,25 +5,25 @@ class Authentification extends CI_Controller {
     public function login (){
         $data_login['title'] = "Login";
         $data_login['content'] = 'login';
-        $this->load->library('form_validation');
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         if ($this->form_validation->run()){
             $username = $this->input->post('username');
             $password = $this->input->post('password');
             $this->load->model('authentification_model');
-            if($data_login['users'] = $this->authentification_model->login($username)){
-                //$this->load->view('master', $data_login);
-                //var_dump($data_login['users']);
+            $data_login['users'] = $this->authentification_model->login($username);
                 foreach ($data_login['users'] as $item){
                     if(password_verify($password, $item['password'])){
+                        $session_data = array(
+                          'username' => $username
+                        );
+                        $this->session->set_userdata($session_data);
                         redirect(base_url() . 'home');
                     }else {
                         $data_login['error'] = "Invalid username or Password";
                         $this->load->view('master', $data_login);
                     }
                 }
-            }
         }
         else{
             $this->load->view('master', $data_login);
@@ -33,7 +33,6 @@ class Authentification extends CI_Controller {
     public function register(){
         $data_register['title'] = "Register";
         $data_register['content'] = 'register';
-        $this->load->library('form_validation');
         $this->form_validation->set_rules('username', 'Username', 'required|min_length[5]|is_unique[users.username]');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[5]');
         $this->form_validation->set_rules('confirm_password', 'Password Confirmation', 'required|matches[password]');
@@ -51,5 +50,11 @@ class Authentification extends CI_Controller {
             $data_register['success'] = "You are registered";
             $this->load->view('master', $data_register);
         }
+    }
+    public function logout(){
+        $data_logout['title'] = "Login";
+        $data_logout['content'] = 'login';
+        $this->load->view('master', $data_logout);
+        $this->session->sess_destroy();
     }
 }

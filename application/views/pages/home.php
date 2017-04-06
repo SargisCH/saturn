@@ -1,4 +1,4 @@
-
+<p id="logout_block"><a id="logout_link" href="<?php echo base_url('authentification/logout'); ?>">Logout</a></p>
     <div id="main">
 		<div id="info">
 			 <img id="head-bg" src="<?php echo base_url(); ?>img/head-bg.jpg" alt="head-img">
