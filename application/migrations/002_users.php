@@ -33,6 +33,6 @@ class Migration_Users extends CI_Migration {
     }
 
     public function down(){
-        $this->dbforge->drop_table('blog');
+        $this->dbforge->drop_table('users');
     }
 }

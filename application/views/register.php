@@ -21,10 +21,3 @@
     <button type="submit" name="submit" class="btn btn-default">Submit</button>
     <?php echo form_close();?>
 </div>
-<div id="success" class="alert alert-success">
-    <?php
-    if(isset($success)){
-        echo  "<p>" . $success . "</p>";
-    }
-    ?>
-</div>

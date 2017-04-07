@@ -26,6 +26,11 @@
 					<img src="<?php echo base_url(); ?>img/separator.png" alt="separator"> 
 					<p><span>views: </span><a href=""><?=$item['views'];?></a></p>
 				</div>
+                <?php
+                    if(isset($username)){
+                        echo "<div class='author'><p><span>author: </span>" . $username . "</p></div>";
+                    }
+                ?>
 			</div>
 			<?php endforeach;?>
 			<?php echo $this->pagination->create_links(); ?>

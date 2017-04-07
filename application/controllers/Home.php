@@ -25,6 +25,7 @@ class Home extends CI_Controller {
             $config['prev_link'] = '<div class="buttons_pagination" ><i class="fa fa-arrow-left" aria-hidden="true"></i><span>PREVIOUS</span></div>';
             $this->pagination->initialize($config);
             $data['products'] = $this->product_model->get_products($config['per_page'], $this->uri->segment(3));
+            $data['username'] = $this->product_model->get_username($config['per_page'], $this->uri->segment(3));
             $this->load->view('master', $data);
         } else {
 	        redirect(base_url() . 'authentification/login');

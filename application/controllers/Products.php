@@ -37,6 +37,7 @@ class Products extends CI_Controller{
                     $this->product_model->add_product($data);
                     $data1['success'] = "Your Data has been added";
                     $this->load->view('master', $data1);
+
                 }
          }
         public function get(){
