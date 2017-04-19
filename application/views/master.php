@@ -22,7 +22,7 @@
                 <ul id="menu">
                     <li><a href="<?php echo base_url('home'); ?>">Home</a></li>
                     <li><a href="<?php echo base_url('products/add_view'); ?>" >Add products</a></li>
-                    <li><a href="<?php echo base_url('authentification/login'); ?>">Login</a></li>
+                    <li><a href="<?php echo base_url('archive'); ?>">Archive</a></li>
                     <li><a href="<?php echo base_url('contact'); ?>">Contact</a></li>
                 </ul>
             </nav>
